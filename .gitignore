@@ -1,0 +1,8 @@
+*
+!/src
+!/src/**
+/src/molview.pro.*
+!CMakeLists.txt
+!COPYING
+!README.md
+!.gitignore

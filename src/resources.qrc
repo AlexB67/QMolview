@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/document-open-symbolic.symbolic.png</file>
+        <file>icons/application-exit-symbolic.symbolic.png</file>
+        <file>icons/application-exit-symbolic.symbolic-light.png</file>
+        <file>icons/document-open-symbolic.symbolic-light.png</file>
+        <file>icons/media-playback-start-symbolic.symbolic.png</file>
+        <file>icons/video-display-symbolic.symbolic.png</file>
+        <file>icons/video-display-symbolic.symbolic-light.png</file>
+        <file>icons/preferences-system-symbolic.symbolic.png</file>
+        <file>icons/preferences-system-symbolic.symbolic-light.png</file>
+        <file>icons/media-seek-backward-symbolic.symbolic.png</file>
+        <file>icons/media-seek-forward-symbolic.symbolic.png</file>
+        <file>icons/media-playback-start-symbolic.symbolic-light.png</file>
+        <file>icons/media-seek-backward-symbolic.symbolic-light.png</file>
+        <file>icons/media-seek-forward-symbolic.symbolic-light.png</file>
+        <file>icons/media-playback-stop-symbolic.symbolic.png</file>
+        <file>icons/media-playback-stop-symbolic.symbolic-light.png</file>
+        <file>icons/qmolview.png</file>
+    </qresource>
+</RCC>

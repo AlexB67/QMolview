@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=MolView
+Comment=View normal modes or xyz files
+Exec=qmolview
+Icon=qmolview
+Terminal=false
+Type=Application
+Categories=Qt;Science;Chemistry;Physics;Education;
+StartupNotify=true
+MimeType=chemical/x-xyz;chemical/x-molden;
