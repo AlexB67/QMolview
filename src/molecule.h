@@ -1,67 +1,110 @@
 #pragma once
+#include <QVector>
+#include <QVector3D>
 #include <vector>
-#include <math.h>
+#include <cmath>
 #include <map>
-#include <array>
 #include <string_view>
 #include <stdexcept>
-
-
-template <typename T>
-using Matrix2D = std::vector<std::vector<T> >;
+#include <tuple>
 
 template <typename T>
-using Matrix1D = std::vector<T>;
-
-template <typename T>
-constexpr T Pi() { return std::acos(-1); }
-const double pi = Pi<float>();
-
-constexpr double convert_to_hertz = 1804741.168887;
-constexpr double convert_to_wavenumber = 60.199686;
+constexpr T Pi() { return std::acos(-1.0f); }
+const double pi = Pi<double>();
 
 namespace Mol
 {
     enum class fileTypes
     {
        FILE_TYPE_XYZ,
+       FILE_TYPE_CML,
        FILE_TYPE_MOLDEN
     };
 
     class Molecule
     {
         public:
-            Molecule(){}
+            Molecule(bool last_frame, bool sort, bool align);
+            Molecule();
             Molecule(const Molecule&) = delete;
             Molecule& operator=(const Molecule& other) = delete;
             Molecule(const Molecule&&) = delete;
             Molecule&& operator=(const Molecule&& other) = delete;
 
-            void get_geom(const std::string& filename, fileTypes filetype);
-            void get_normal_modes(const std::string& filename);
-            std::vector<Matrix2D<double>>  get_coords() const { return geom;}
-            std::vector<Matrix2D<double>>  get_normal_modes() const { return normal_modes;}
-            std::vector<double> get_frequencies() const { return frequencies; }
-            std::vector<double> get_ir_intensities() const { return ir_intensities; }
-            Matrix2D<bool> get_connectivity(std::size_t num);
-            Matrix1D<size_t> get_zvalues() const { return zval; }
-            double get_largest_axis(std::size_t num) const;
-            size_t get_num_atoms() const {return natoms;}
-            size_t get_num_structures() {return num_sctructures;}
-            double molecular_mass{0};
-        private:
-            size_t natoms{0};
-            size_t num_sctructures{0};
-            fileTypes file_type;
-            Matrix1D<size_t> zval;
-            std::vector<double> frequencies;
-            std::vector<double> ir_intensities;
-            std::vector<Matrix2D<double>> geom;
-            std::vector<Matrix2D<double>> normal_modes;
-            Matrix2D<double> r; // bond matrix
-            Matrix2D<bool> connctivity; // connectivity matrix
+            // Read an input file with extension "xyz" or "molden_normal_modes"
+            [[nodiscard]] std::pair<bool, std::string> get_geom(const std::string& filename, fileTypes filetype);
 
-            double bond(std::size_t num, const size_t a, const size_t b) const;
+            // Return coordinates in  a 3D matrix: size number of frames x natoms x 3 coordinates
+            QVector<QVector<QVector3D>> get_coords() const { return coords; }
+
+            // Return normal modes in a 3D matrix: size number of modes x natoms x 3 coordinates
+            QVector<QVector<QVector3D>> get_normal_modes() const { return normal_modes;}
+
+            // Return a vector of frequencies in wavenumbers: size number of modes
+            QVector<double> get_frequencies() const { return frequencies; }
+
+            // Return a vector of IR intensities km mol^-1: size number of modes
+            QVector<double> get_ir_intensities() const { return ir_intensities; }
+
+            // Return a 2D connectivity matrix: natoms x natom for a given frame number
+            QVector<QVector<bool>> get_connectivity(int frame_number);
+
+            // Return a 2D bond order matrix: natoms x natom
+            QVector<QVector<int>> get_bond_orders() const { return bond_order; }
+
+            // Return a vector of atomic numbers: size natoms
+            // atoms are assumed to be the same for all frames (for now)
+            QVector<size_t> get_zvalues() const { return zval; }
+
+            // Reaalign the molecule so that largest Dimension is X > Y > Z
+            QVector<int> get_sort_axes() const { return axes_idx; }
+
+            // Get a rough estimate of the molecule largests dimension
+            float get_max_extent() const { return largest_distance; }
+
+            // Get the number of atoms.
+            // atoms are assumed to be the same for all frames (for now)
+            int get_num_atoms() const {return natoms;}
+
+            // Get the number of frames or structures.
+            // XYZ files only. For Molden files this is always 1.
+            int get_num_frames() const {return num_frames;}
+
+            // Get the molecular formula in a markup string.
+            // atoms are assumed to be the same for all frames (for now)
+            std::string get_formula_string()  const { return formula_string; }
+
+            // Get the relative molecular mass.
+            // atoms are assumed to be the same for all frames (for now)
+            // So there is only one value for all frames
+            float get_mass() const { return molecular_mass;}
+
+        private:
+            bool use_last_frame;
+            bool sort_axes;
+            bool align_axes;
+            int natoms{0};
+            int num_frames{0};
+            float molecular_mass{0};
+            float largest_distance{0};
+            std::vector<std::string> formula_vector;
+            std::string formula_string;
+            fileTypes file_type;
+            QVector<size_t> zval;
+            QVector<int> axes_idx;
+            QVector<double> frequencies;
+            QVector<double> ir_intensities;
+            QVector<QVector<QVector3D>> coords;
+            QVector<QVector<QVector3D>> normal_modes;
+            QVector<QVector<double>> r; // bond matrix
+            QVector<QVector<bool>> connectivity; // connectivity matrix
+            QVector<QVector<int>> bond_order; // Bond orders, not yet implemented for xyz/Molden
+
+            double bond(int frame_num, const int a, const int b) const;
+
+            std::pair<bool, std::string> get_molden_file(const std::string& filename);
+            std::pair<bool, std::string> get_xyz_file(const std::string& filename);
+            std::pair<bool, std::string> get_cml_file(const std::string& filename);
     };
 }
 
@@ -291,10 +334,12 @@ inline constexpr bool valid_atomic_number(std::size_t an) noexcept {
 ///
 /// \param symbol Atomic symbol
 /// \return Atomic number
-inline std::size_t atomic_number(const std::string_view& symbol) {
+inline std::size_t atomic_number(const std::string_view& symbol) 
+{
   std::size_t an{0};
 
-  for (std::size_t i = 0; i < pt_size; i++) {
+  for (std::size_t i = 0; i < pt_size; i++) 
+  {
     if (symbol == symbols[i]) {
       an = i;
       break;

@@ -1,15 +1,20 @@
 cmake_minimum_required (VERSION 3.5)
 
-SET($(PROJECT_NAME) "qmolview" LANGUAGES CXX)
-project ($(PROJECT_NAME))
+#  Qt creator doesn't pick this up
+SET($(PROJECT_NAME) "qmolview")
+SET(LANGUAGES CXX)
+# for Qt creator
+project ("qmolview")
+
+# where we install
+# SET(CMAKE_INSTALL_PREFIX /usr/local)
 
 # config file
 SET(VERSION_MAJOR "0")
-SET(VERSION_MINOR "1")
+SET(VERSION_MINOR "6")
 SET(VERSION_MICRO "0")
-SET(QMOLVIEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-SET(QMOLVIEW_COMPILER "${CMAKE_CXX_COMPILER_VERSION}")
-# configure_file(hfscf_cmake_config.h.in cmakeconfig.h )
+SET(QMOLVIEW_TARGET_DIR ${CMAKE_INSTALL_PREFIX})
+configure_file(qmolview_cmake_config.h.in cmakeconfig.h )
 
 
 # Enable release build
@@ -21,3 +26,4 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 add_subdirectory(src)
+add_subdirectory(extras)

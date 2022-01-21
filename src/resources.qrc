@@ -17,5 +17,33 @@
         <file>icons/media-playback-stop-symbolic.symbolic.png</file>
         <file>icons/media-playback-stop-symbolic.symbolic-light.png</file>
         <file>icons/qmolview.png</file>
+        <file>icons/keyboard-shortcuts-symbolic.symbolic.png</file>
+        <file>icons/keyboard-shortcuts-symbolic.symbolic-light.png</file>
+        <file>icons/object-rotate-left-symbolic.symbolic.png</file>
+        <file>icons/object-rotate-left-symbolic.symbolic-light.png</file>
+        <file>icons/object-rotate-right-symbolic.symbolic.png</file>
+        <file>icons/object-rotate-right-symbolic.symbolic-light.png</file>
+        <file>icons/view-restore-symbolic.symbolic.png</file>
+        <file>icons/view-restore-symbolic.symbolic-light.png</file>
+        <file>icons/view-continuous-symbolic.symbolic.png</file>
+        <file>icons/view-continuous-symbolic.symbolic-light.png</file>
+        <file>icons/emblem-default-symbolic.symbolic.png</file>
+        <file>icons/emblem-default-symbolic.symbolic-light.png</file>
+        <file>icons/document-save-as-symbolic.symbolic.png</file>
+        <file>icons/document-save-as-symbolic.symbolic-light.png</file>
+        <file>icons/media-playback-pause-symbolic.symbolic.png</file>
+        <file>icons/media-playback-pause-symbolic.symbolic-light.png</file>
+        <file>icons/view-refresh-symbolic.symbolic.png</file>
+        <file>icons/view-refresh-symbolic.symbolic-light.png</file>
+        <file>icons/axis-symbolic.symbolic.png</file>
+        <file>icons/axis-symbolic.symbolic-light.png</file>
+        <file>icons/vector-symbolic.symbolic.png</file>
+        <file>icons/vector-symbolic.symbolic-light.png</file>
+        <file>icons/open-menu-symbolic.symbolic-light.png</file>
+        <file>icons/open-menu-symbolic.symbolic.png</file>
+        <file>icons/about-symbolic.symbolic-light.png</file>
+        <file>icons/about-symbolic.symbolic.png</file>
+        <file>icons/help-browser-symbolic.symbolic-light.png</file>
+        <file>icons/help-browser-symbolic.symbolic.png</file>
     </qresource>
 </RCC>

@@ -1,0 +1,31 @@
+{
+    "app-id": "org.physchem.qmolview",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-21.08",
+    "sdk": "org.kde.Sdk",
+    "command": "qmolview",
+    "rename-icon": "qmolview",
+    "rename-desktop-file": "qmolview.desktop",
+    "tags": ["devel", "development", "nightly"],
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=home:rw"
+    ],
+    "modules": [
+        {
+            "name": "qmolview",
+            "buildsystem": "cmake-ninja",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/AlexB67/QMolview.git"
+                }
+            ]
+        }
+    ]
+}
+

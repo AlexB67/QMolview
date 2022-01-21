@@ -1,10 +1,12 @@
 [Desktop Entry]
-Name=MolView
-Comment=View normal modes or xyz files
-Exec=qmolview
+Name=QMolView
+GenericName=Molecule viewer
+Comment=View normal modes, xyz or cml files
+Exec=env QT_QPA_PLATFORM=xcb qmolview %f
 Icon=qmolview
 Terminal=false
 Type=Application
+Keywords=Chemistry;Physics;
 Categories=Qt;Science;Chemistry;Physics;Education;
 StartupNotify=true
-MimeType=chemical/x-xyz;chemical/x-molden;
+MimeType=chemical/x-xyz;chemical/x-cml;

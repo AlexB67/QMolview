@@ -1,7 +1,6 @@
 ﻿#include "fusionstyles.h"
 #include <QIcon>
 #include <QPixmap>
-#include <iostream>
 
 void FusionStyle::FusionDarkStyle::polish(QPalette &palette)
 {
@@ -23,7 +22,7 @@ void FusionStyle::FusionDarkStyle::polish(QPalette &palette)
     palette.setColor(QPalette::Link, QColor(42, 130, 218));
     palette.setColor(QPalette::LinkVisited, QColor(42, 130, 218).darker());
     palette.setColor(QPalette::Highlight, Qt::lightGray);
-    palette.setColor(QPalette::HighlightedText, Qt::lightGray);
+    palette.setColor(QPalette::HighlightedText, Qt::black);
     palette.setColor(QPalette::Disabled, QPalette::HighlightedText, fusion_disabled_colour);
 }
 
@@ -92,6 +91,7 @@ int FusionStyle::FusionZodiacBlueStyle::styleHint(StyleHint hint, const QStyleOp
         default:
             return QProxyStyle::styleHint(hint, option, widget, returnData);
     }
+
 }
 
 QPixmap FusionStyle::FusionZodiacBlueStyle::generatedIconPixmap(
@@ -119,7 +119,7 @@ void FusionStyle::FusionZodiacBlueStyle::drawControl(ControlElement element,
 {
     switch (element)
     {
-    case CE_PushButtonLabel:
+        case CE_PushButtonLabel:
         {
             QStyleOptionButton myButtonOption;
             const QStyleOptionButton *buttonOption =
@@ -130,7 +130,7 @@ void FusionStyle::FusionZodiacBlueStyle::drawControl(ControlElement element,
                         != QPalette::Disabled) {
                     if (myButtonOption.state & (State_Sunken | State_On)) {
                         myButtonOption.palette.setBrush(QPalette::ButtonText,
-                                myButtonOption.palette.brightText());
+                                                        myButtonOption.palette.brightText());
                     }
                 }
             }
@@ -138,8 +138,8 @@ void FusionStyle::FusionZodiacBlueStyle::drawControl(ControlElement element,
             QProxyStyle::drawControl(element, &myButtonOption, painter, widget);
         }
         break;
-    default:
-        QProxyStyle::drawControl(element, option, painter, widget);
+        default:
+            QProxyStyle::drawControl(element, option, painter, widget);
     }
 }
 
@@ -197,16 +197,16 @@ void FusionStyle::FusionDarkStyle::unpolish(QWidget *widget)
 
     QProxyStyle::unpolish(widget);
 
-//    if (qobject_cast<QPushButton *>(widget)
-//            || qobject_cast<QComboBox *>(widget))
-//    {
-//        widget->setAttribute(Qt::WA_Hover, false);
-//    }
+    if (qobject_cast<QPushButton *>(widget)
+            || qobject_cast<QComboBox *>(widget))
+    {
+        widget->setAttribute(Qt::WA_Hover, false);
+    }
 }
 
 int FusionStyle::FusionDarkStyle::styleHint(StyleHint hint, const QStyleOption *option,
-                                                  const QWidget *widget,
-                                                  QStyleHintReturn *returnData) const
+                                            const QWidget *widget,
+                                            QStyleHintReturn *returnData) const
 {
     switch (hint)
     {
@@ -240,13 +240,13 @@ QPixmap FusionStyle::FusionDarkStyle::generatedIconPixmap(
 }
 
 void FusionStyle::FusionDarkStyle::drawControl(ControlElement element,
-                                                     const QStyleOption *option,
-                                                     QPainter *painter,
-                                                     const QWidget *widget) const
+                                               const QStyleOption *option,
+                                               QPainter *painter,
+                                               const QWidget *widget) const
 {
     switch (element)
     {
-    case CE_PushButtonLabel:
+        case CE_PushButtonLabel:
         {
             QStyleOptionButton myButtonOption;
             const QStyleOptionButton *buttonOption =
@@ -325,33 +325,33 @@ QPixmap FusionStyle::FusionLightStyle::generatedIconPixmap(
 }
 
 void FusionStyle::FusionLightStyle::drawControl(ControlElement element,
-                                                     const QStyleOption *option,
-                                                     QPainter *painter,
-                                                     const QWidget *widget) const
+                                                const QStyleOption *option,
+                                                QPainter *painter,
+                                                const QWidget *widget) const
 {
     switch (element)
     {
-    case CE_PushButtonLabel:
-        {
-            QStyleOptionButton myButtonOption;
-            const QStyleOptionButton *buttonOption =
-                    qstyleoption_cast<const QStyleOptionButton *>(option);
-            if (buttonOption) {
-                myButtonOption = *buttonOption;
-                if (myButtonOption.palette.currentColorGroup()
-                        != QPalette::Disabled) {
-                    if (myButtonOption.state & (State_Sunken | State_On)) {
-                        myButtonOption.palette.setBrush(QPalette::ButtonText,
-                                myButtonOption.palette.brightText());
+        case CE_PushButtonLabel:
+            {
+                QStyleOptionButton myButtonOption;
+                const QStyleOptionButton *buttonOption =
+                        qstyleoption_cast<const QStyleOptionButton *>(option);
+                if (buttonOption) {
+                    myButtonOption = *buttonOption;
+                    if (myButtonOption.palette.currentColorGroup()
+                            != QPalette::Disabled) {
+                        if (myButtonOption.state & (State_Sunken | State_On)) {
+                            myButtonOption.palette.setBrush(QPalette::ButtonText,
+                                    myButtonOption.palette.brightText());
+                        }
                     }
                 }
-            }
 
-            QProxyStyle::drawControl(element, &myButtonOption, painter, widget);
-        }
-        break;
-    default:
-        QProxyStyle::drawControl(element, option, painter, widget);
+                QProxyStyle::drawControl(element, &myButtonOption, painter, widget);
+            }
+            break;
+        default:
+            QProxyStyle::drawControl(element, option, painter, widget);
     }
 }
 
@@ -374,11 +374,19 @@ void FusionStyle::setstyle(const QString &style, const bool use_standard_palette
         QPalette();
 
     if ("Fusion Dark" == style)
+    {
         QApplication::setStyle(new FusionStyle::FusionDarkStyle);
+        qApp->setStyleSheet("QToolTip { color: #ffffff; background-color: black;"
+                                " border: 1px solid black;}");
+    }
     else if ("Fusion Light" == style)
         QApplication::setStyle(new FusionStyle::FusionLightStyle);
     else if ("Fusion Zodiac Blue" ==  style)
+    {
         QApplication::setStyle(new FusionStyle::FusionZodiacBlueStyle);
+        qApp->setStyleSheet("QToolTip { color: #ffffff; background-color: rgb(41, 46, 60);"
+                                " border: 1px solid black;}");
+    }
     else
         QApplication::setStyle(QStyleFactory::create(style));
 }

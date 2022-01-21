@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>org.physchem.qmolview</id>
+	<launchable type="desktop-id">org.physchem.qmolview.desktop</launchable>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>LGPL-3.0-or-later</project_license>
+	 <name>QMolView</name>
+   <summary>A Molecule viewer for vibrational modes and molecular structures.</summary>
+    <url type="homepage">https://github.com/AlexB67/QMolview</url>
+	<description>
+	<p>
+	A Molecule viewer for displaying vibrational modes and molecular structures.
+	</p>
+	<p>
+	Animate normal modes from molden_normal_modes files in PSI4 compatible format. 
+	Display cml and xyz files. Export in xyz format.
+	</p>
+	</description>
+	<screenshots>
+    <screenshot type="default">
+      <caption>Main application window displaying a normal mode animation</caption>
+      <image type="source">https://raw.githubusercontent.com/AlexB67/QMolview/master/src/screenshots/qmolview.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>IR spectrum window</caption>
+      <image type="source">https://raw.githubusercontent.com/AlexB67/QMolview/master/src/screenshots/qmolview-spectrum.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Displaying an xyz file with multiple frames</caption>
+      <image type="source">https://raw.githubusercontent.com/AlexB67/QMolview/master/src/screenshots/qmolview-xyz.png</image>
+    </screenshot>
+	</screenshots>
+  <releases>
+	  <release version="0.6.0" date="2022-01-19" type="release">
+      <description>
+        <p>
+          This is a stable release.
+        </p>
+        <ul>
+          <li>First release.</li>
+        </ul>
+    </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.0" version="19.0" Modules="simple" RootPath="." Language="en" Id="{79BCA8B7-E788-461C-B8C3-2479DF9DAF4E}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="qmolview.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://github.com/AlexB67"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/AlexB67"/>
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="Manufacturer" Value="PhysChemSoft"/>
+    <ROW Property="ProductCode" Value="1033:{AEFB4EB1-4F89-491B-94F1-A45C21739C27} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="QMolView"/>
+    <ROW Property="ProductVersion" Value="0.5.0" Type="32"/>
+    <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{B35A5808-EF08-44B6-BDEB-30B9EAA336A9}"/>
+    <ROW Property="VIEWREADME" Value="1" Type="4"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="PersonalFolder" Directory_Parent="TARGETDIR" DefaultDir="PERSON~1|PersonalFolder" IsPseudoRoot="1"/>
+    <ROW Directory="QMolView_Dir" Directory_Parent="PersonalFolder" DefaultDir="QMolView"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="bearer_Dir" Directory_Parent="installer_Dir" DefaultDir="bearer"/>
+    <ROW Directory="gamepads_Dir" Directory_Parent="installer_Dir" DefaultDir="gamepads"/>
+    <ROW Directory="geometryloaders_Dir" Directory_Parent="installer_Dir" DefaultDir="GEOMET~1|geometryloaders"/>
+    <ROW Directory="iconengines_Dir" Directory_Parent="installer_Dir" DefaultDir="ICONEN~1|iconengines"/>
+    <ROW Directory="imageformats_Dir" Directory_Parent="installer_Dir" DefaultDir="IMAGEF~1|imageformats"/>
+    <ROW Directory="installer_Dir" Directory_Parent="APPDIR" DefaultDir="INSTAL~1|installer"/>
+    <ROW Directory="platforms_Dir" Directory_Parent="installer_Dir" DefaultDir="PLATFO~1|platforms"/>
+    <ROW Directory="renderers_Dir" Directory_Parent="installer_Dir" DefaultDir="RENDER~1|renderers"/>
+    <ROW Directory="sceneparsers_Dir" Directory_Parent="installer_Dir" DefaultDir="SCENEP~1|sceneparsers"/>
+    <ROW Directory="styles_Dir" Directory_Parent="installer_Dir" DefaultDir="styles"/>
+    <ROW Directory="translations_Dir" Directory_Parent="installer_Dir" DefaultDir="TRANSL~1|translations"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{8276BD28-C307-4150-B8C8-CD894374FD96}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="D3Dcompiler_47.dll" ComponentId="{B119686E-790A-44BC-8D12-65058FCB4F4F}" Directory_="installer_Dir" Attributes="256" KeyPath="D3Dcompiler_47.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{2D290D51-B3CB-49A0-AEBF-708BDA8996FF}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
+    <ROW Component="Qt53DCore.dll" ComponentId="{1C7F68F3-73EF-4B35-95EC-74AC8418EC47}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt53DCore.dll"/>
+    <ROW Component="Qt53DExtras.dll" ComponentId="{E26E7F8F-3C46-464A-813A-635445061B2B}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt53DExtras.dll"/>
+    <ROW Component="Qt53DInput.dll" ComponentId="{584D5B49-C5B6-4BCD-BEBB-60DE7F186AB1}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt53DInput.dll"/>
+    <ROW Component="Qt53DLogic.dll" ComponentId="{2C002BE1-4D46-4882-B543-8FA30E04D9C0}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt53DLogic.dll"/>
+    <ROW Component="Qt53DRender.dll" ComponentId="{2428CE03-9EDA-4880-AE15-C77656F0760A}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt53DRender.dll"/>
+    <ROW Component="Qt5Charts.dll" ComponentId="{E545033B-2D13-4E93-A02D-97CF8BE7C59F}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Charts.dll"/>
+    <ROW Component="Qt5Concurrent.dll" ComponentId="{72572166-8FD2-4B77-9441-42F9F850B7E1}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Concurrent.dll"/>
+    <ROW Component="Qt5Core.dll" ComponentId="{91A1E967-34B8-453C-A94B-C0F9719801E9}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Core.dll"/>
+    <ROW Component="Qt5Gamepad.dll" ComponentId="{C468AD2B-4C7E-44D4-818E-CB65B2FE0A44}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Gamepad.dll"/>
+    <ROW Component="Qt5Gui.dll" ComponentId="{FDC7F56F-166D-4D87-974D-044563E8A4DC}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Gui.dll"/>
+    <ROW Component="Qt5Network.dll" ComponentId="{F22AC72B-352E-4688-951F-F1FE2458E787}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Network.dll"/>
+    <ROW Component="Qt5Svg.dll" ComponentId="{BB5734C9-3638-4E61-9E2A-1F9FE6A19FE8}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Svg.dll"/>
+    <ROW Component="Qt5Widgets.dll" ComponentId="{882AE419-CC51-4BE5-8D92-0AF09B8375A7}" Directory_="installer_Dir" Attributes="256" KeyPath="Qt5Widgets.dll"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{B8CC1835-16DF-4CE1-9F25-510598031C5C}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="acetone.xyz" ComponentId="{CEC163B8-0368-4DA7-A2C4-D266813BB7CB}" Directory_="QMolView_Dir" Attributes="0" KeyPath="acetone.xyz" Type="0"/>
+    <ROW Component="defaultgeometryloader.dll" ComponentId="{886FB43E-8600-4BBA-A71D-41BE03E14FCA}" Directory_="geometryloaders_Dir" Attributes="256" KeyPath="defaultgeometryloader.dll"/>
+    <ROW Component="gltfgeometryloader.dll" ComponentId="{64E87756-361A-41A3-90BB-BC19A51A2513}" Directory_="geometryloaders_Dir" Attributes="256" KeyPath="gltfgeometryloader.dll"/>
+    <ROW Component="gltfsceneexport.dll" ComponentId="{1664B544-49FB-428A-AFE9-AEB1D94A97BA}" Directory_="sceneparsers_Dir" Attributes="256" KeyPath="gltfsceneexport.dll"/>
+    <ROW Component="gltfsceneimport.dll" ComponentId="{F3E98344-5308-4ECB-8602-A52E8047D8D6}" Directory_="sceneparsers_Dir" Attributes="256" KeyPath="gltfsceneimport.dll"/>
+    <ROW Component="libEGL.dll" ComponentId="{54E169F4-1A71-42C7-8FBE-E7F80A93CBDB}" Directory_="installer_Dir" Attributes="256" KeyPath="libEGL.dll"/>
+    <ROW Component="libGLESv2.dll" ComponentId="{2F37CF64-0BD2-4840-B7EC-8ECB8ED24D54}" Directory_="installer_Dir" Attributes="256" KeyPath="libGLESv2.dll"/>
+    <ROW Component="libgcc_s_seh1.dll" ComponentId="{40890C17-91AC-4FBB-9B02-8B79F12FE227}" Directory_="installer_Dir" Attributes="256" KeyPath="libgcc_s_seh1.dll"/>
+    <ROW Component="libstdc6.dll" ComponentId="{C58BE5CB-5565-495D-8523-3C91EDA333E6}" Directory_="installer_Dir" Attributes="256" KeyPath="libstdc6.dll"/>
+    <ROW Component="libwinpthread1.dll" ComponentId="{6BAB335C-C32B-4ADF-A7C3-F7D851818D61}" Directory_="installer_Dir" Attributes="256" KeyPath="libwinpthread1.dll"/>
+    <ROW Component="opengl32sw.dll" ComponentId="{0A63F5AC-1513-4D55-8BDE-603960DF2F1C}" Directory_="installer_Dir" Attributes="256" KeyPath="opengl32sw.dll"/>
+    <ROW Component="openglrenderer.dll" ComponentId="{B8AB3423-E783-4609-A67A-2FAC2CE05FF3}" Directory_="renderers_Dir" Attributes="256" KeyPath="openglrenderer.dll"/>
+    <ROW Component="qgenericbearer.dll" ComponentId="{AA1EFBA8-CA16-4742-AB6C-456A5569AA4F}" Directory_="bearer_Dir" Attributes="256" KeyPath="qgenericbearer.dll"/>
+    <ROW Component="qgif.dll" ComponentId="{48EB1C94-B0C5-4C39-8130-A73CD386B73A}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qgif.dll"/>
+    <ROW Component="qicns.dll" ComponentId="{0E1069B5-460F-4256-88F2-4FF5E66E1C0C}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qicns.dll"/>
+    <ROW Component="qico.dll" ComponentId="{8FD906D8-B804-4DB3-AA5F-DB4E039308FC}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qico.dll"/>
+    <ROW Component="qjpeg.dll" ComponentId="{C3B9ED47-5B38-4EF9-B26F-EF6A9B035510}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qjpeg.dll"/>
+    <ROW Component="qmolview.exe" ComponentId="{C7C628D6-9AF9-4B8A-B011-41535521D416}" Directory_="installer_Dir" Attributes="256" KeyPath="qmolview.exe"/>
+    <ROW Component="qsvg.dll" ComponentId="{C22B0B69-51CD-4CFD-8095-10C467DD0E01}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qsvg.dll"/>
+    <ROW Component="qsvgicon.dll" ComponentId="{9D1F8D63-9714-49C4-80C4-54F311300257}" Directory_="iconengines_Dir" Attributes="256" KeyPath="qsvgicon.dll"/>
+    <ROW Component="qt_ar.qm" ComponentId="{293CB7FF-FF28-4E14-95AC-2C418C16AE48}" Directory_="translations_Dir" Attributes="0" KeyPath="qt_ar.qm" Type="0"/>
+    <ROW Component="qtga.dll" ComponentId="{3D67A91D-FA22-493F-A08C-385A7CB27088}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtga.dll"/>
+    <ROW Component="qtiff.dll" ComponentId="{A9AB83FE-0F19-438D-80D9-7435AA2D80AF}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qtiff.dll"/>
+    <ROW Component="qwbmp.dll" ComponentId="{0DE1D406-ACE5-4A21-93AA-67E897810C33}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwbmp.dll"/>
+    <ROW Component="qwebp.dll" ComponentId="{981A9A3E-2B89-448A-B58E-A31BC46CB655}" Directory_="imageformats_Dir" Attributes="256" KeyPath="qwebp.dll"/>
+    <ROW Component="qwindows.dll" ComponentId="{33CFDB80-6961-4309-86FF-10C67BD5E6B9}" Directory_="platforms_Dir" Attributes="256" KeyPath="qwindows.dll"/>
+    <ROW Component="qwindowsvistastyle.dll" ComponentId="{23468199-1F60-4DEB-BC88-12FFCD7E1174}" Directory_="styles_Dir" Attributes="256" KeyPath="qwindowsvistastyle.dll"/>
+    <ROW Component="xinputgamepad.dll" ComponentId="{76EFF2CD-2B98-4718-AA4E-042286F10D9A}" Directory_="gamepads_Dir" Attributes="256" KeyPath="xinputgamepad.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="qgenericbearer.dll" Component_="qgenericbearer.dll" FileName="QGENER~1.DLL|qgenericbearer.dll" Attributes="0" SourcePath="installer\bearer\qgenericbearer.dll" SelfReg="false"/>
+    <ROW File="D3Dcompiler_47.dll" Component_="D3Dcompiler_47.dll" FileName="D3DCOM~1.DLL|D3Dcompiler_47.dll" Attributes="0" SourcePath="installer\D3Dcompiler_47.dll" SelfReg="false"/>
+    <ROW File="xinputgamepad.dll" Component_="xinputgamepad.dll" FileName="XINPUT~1.DLL|xinputgamepad.dll" Attributes="0" SourcePath="installer\gamepads\xinputgamepad.dll" SelfReg="false"/>
+    <ROW File="defaultgeometryloader.dll" Component_="defaultgeometryloader.dll" FileName="DEFAUL~1.DLL|defaultgeometryloader.dll" Attributes="0" SourcePath="installer\geometryloaders\defaultgeometryloader.dll" SelfReg="false"/>
+    <ROW File="gltfgeometryloader.dll" Component_="gltfgeometryloader.dll" FileName="GLTFGE~1.DLL|gltfgeometryloader.dll" Attributes="0" SourcePath="installer\geometryloaders\gltfgeometryloader.dll" SelfReg="false"/>
+    <ROW File="qsvgicon.dll" Component_="qsvgicon.dll" FileName="qsvgicon.dll" Attributes="0" SourcePath="installer\iconengines\qsvgicon.dll" SelfReg="false"/>
+    <ROW File="qgif.dll" Component_="qgif.dll" FileName="qgif.dll" Attributes="0" SourcePath="installer\imageformats\qgif.dll" SelfReg="false"/>
+    <ROW File="qicns.dll" Component_="qicns.dll" FileName="qicns.dll" Attributes="0" SourcePath="installer\imageformats\qicns.dll" SelfReg="false"/>
+    <ROW File="qico.dll" Component_="qico.dll" FileName="qico.dll" Attributes="0" SourcePath="installer\imageformats\qico.dll" SelfReg="false"/>
+    <ROW File="qjpeg.dll" Component_="qjpeg.dll" FileName="qjpeg.dll" Attributes="0" SourcePath="installer\imageformats\qjpeg.dll" SelfReg="false"/>
+    <ROW File="qsvg.dll" Component_="qsvg.dll" FileName="qsvg.dll" Attributes="0" SourcePath="installer\imageformats\qsvg.dll" SelfReg="false"/>
+    <ROW File="qtga.dll" Component_="qtga.dll" FileName="qtga.dll" Attributes="0" SourcePath="installer\imageformats\qtga.dll" SelfReg="false"/>
+    <ROW File="qtiff.dll" Component_="qtiff.dll" FileName="qtiff.dll" Attributes="0" SourcePath="installer\imageformats\qtiff.dll" SelfReg="false"/>
+    <ROW File="qwbmp.dll" Component_="qwbmp.dll" FileName="qwbmp.dll" Attributes="0" SourcePath="installer\imageformats\qwbmp.dll" SelfReg="false"/>
+    <ROW File="qwebp.dll" Component_="qwebp.dll" FileName="qwebp.dll" Attributes="0" SourcePath="installer\imageformats\qwebp.dll" SelfReg="false"/>
+    <ROW File="libEGL.dll" Component_="libEGL.dll" FileName="libEGL.dll" Attributes="0" SourcePath="installer\libEGL.dll" SelfReg="false"/>
+    <ROW File="libgcc_s_seh1.dll" Component_="libgcc_s_seh1.dll" FileName="LIBGCC~1.DLL|libgcc_s_seh-1.dll" Attributes="0" SourcePath="installer\libgcc_s_seh-1.dll" SelfReg="false"/>
+    <ROW File="libGLESv2.dll" Component_="libGLESv2.dll" FileName="LIBGLE~1.DLL|libGLESv2.dll" Attributes="0" SourcePath="installer\libGLESv2.dll" SelfReg="false"/>
+    <ROW File="libstdc6.dll" Component_="libstdc6.dll" FileName="LIBSTD~1.DLL|libstdc++-6.dll" Attributes="0" SourcePath="installer\libstdc++-6.dll" SelfReg="false"/>
+    <ROW File="libwinpthread1.dll" Component_="libwinpthread1.dll" FileName="LIBWIN~1.DLL|libwinpthread-1.dll" Attributes="0" SourcePath="installer\libwinpthread-1.dll" SelfReg="false"/>
+    <ROW File="opengl32sw.dll" Component_="opengl32sw.dll" FileName="OPENGL~1.DLL|opengl32sw.dll" Attributes="0" SourcePath="installer\opengl32sw.dll" SelfReg="false"/>
+    <ROW File="qwindows.dll" Component_="qwindows.dll" FileName="qwindows.dll" Attributes="0" SourcePath="installer\platforms\qwindows.dll" SelfReg="false"/>
+    <ROW File="qmolview.exe" Component_="qmolview.exe" FileName="qmolview.exe" Attributes="0" SourcePath="installer\qmolview.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Qt53DCore.dll" Component_="Qt53DCore.dll" FileName="QT53DC~1.DLL|Qt53DCore.dll" Attributes="0" SourcePath="installer\Qt53DCore.dll" SelfReg="false"/>
+    <ROW File="Qt53DExtras.dll" Component_="Qt53DExtras.dll" FileName="QT53DE~1.DLL|Qt53DExtras.dll" Attributes="0" SourcePath="installer\Qt53DExtras.dll" SelfReg="false"/>
+    <ROW File="Qt53DInput.dll" Component_="Qt53DInput.dll" FileName="QT53DI~1.DLL|Qt53DInput.dll" Attributes="0" SourcePath="installer\Qt53DInput.dll" SelfReg="false"/>
+    <ROW File="Qt53DLogic.dll" Component_="Qt53DLogic.dll" FileName="QT53DL~1.DLL|Qt53DLogic.dll" Attributes="0" SourcePath="installer\Qt53DLogic.dll" SelfReg="false"/>
+    <ROW File="Qt53DRender.dll" Component_="Qt53DRender.dll" FileName="QT53DR~1.DLL|Qt53DRender.dll" Attributes="0" SourcePath="installer\Qt53DRender.dll" SelfReg="false"/>
+    <ROW File="Qt5Charts.dll" Component_="Qt5Charts.dll" FileName="QT5CHA~1.DLL|Qt5Charts.dll" Attributes="0" SourcePath="installer\Qt5Charts.dll" SelfReg="false"/>
+    <ROW File="Qt5Concurrent.dll" Component_="Qt5Concurrent.dll" FileName="QT5CON~1.DLL|Qt5Concurrent.dll" Attributes="0" SourcePath="installer\Qt5Concurrent.dll" SelfReg="false"/>
+    <ROW File="Qt5Core.dll" Component_="Qt5Core.dll" FileName="Qt5Core.dll" Attributes="0" SourcePath="installer\Qt5Core.dll" SelfReg="false"/>
+    <ROW File="Qt5Gamepad.dll" Component_="Qt5Gamepad.dll" FileName="QT5GAM~1.DLL|Qt5Gamepad.dll" Attributes="0" SourcePath="installer\Qt5Gamepad.dll" SelfReg="false"/>
+    <ROW File="Qt5Gui.dll" Component_="Qt5Gui.dll" FileName="Qt5Gui.dll" Attributes="0" SourcePath="installer\Qt5Gui.dll" SelfReg="false"/>
+    <ROW File="Qt5Network.dll" Component_="Qt5Network.dll" FileName="QT5NET~1.DLL|Qt5Network.dll" Attributes="0" SourcePath="installer\Qt5Network.dll" SelfReg="false"/>
+    <ROW File="Qt5Svg.dll" Component_="Qt5Svg.dll" FileName="Qt5Svg.dll" Attributes="0" SourcePath="installer\Qt5Svg.dll" SelfReg="false"/>
+    <ROW File="Qt5Widgets.dll" Component_="Qt5Widgets.dll" FileName="QT5WID~1.DLL|Qt5Widgets.dll" Attributes="0" SourcePath="installer\Qt5Widgets.dll" SelfReg="false"/>
+    <ROW File="openglrenderer.dll" Component_="openglrenderer.dll" FileName="OPENGL~1.DLL|openglrenderer.dll" Attributes="0" SourcePath="installer\renderers\openglrenderer.dll" SelfReg="false"/>
+    <ROW File="gltfsceneexport.dll" Component_="gltfsceneexport.dll" FileName="GLTFSC~1.DLL|gltfsceneexport.dll" Attributes="0" SourcePath="installer\sceneparsers\gltfsceneexport.dll" SelfReg="false"/>
+    <ROW File="gltfsceneimport.dll" Component_="gltfsceneimport.dll" FileName="GLTFSC~2.DLL|gltfsceneimport.dll" Attributes="0" SourcePath="installer\sceneparsers\gltfsceneimport.dll" SelfReg="false"/>
+    <ROW File="qwindowsvistastyle.dll" Component_="qwindowsvistastyle.dll" FileName="QWINDO~1.DLL|qwindowsvistastyle.dll" Attributes="0" SourcePath="installer\styles\qwindowsvistastyle.dll" SelfReg="false"/>
+    <ROW File="qt_ar.qm" Component_="qt_ar.qm" FileName="qt_ar.qm" Attributes="0" SourcePath="installer\translations\qt_ar.qm" SelfReg="false"/>
+    <ROW File="qt_bg.qm" Component_="qt_ar.qm" FileName="qt_bg.qm" Attributes="0" SourcePath="installer\translations\qt_bg.qm" SelfReg="false"/>
+    <ROW File="qt_ca.qm" Component_="qt_ar.qm" FileName="qt_ca.qm" Attributes="0" SourcePath="installer\translations\qt_ca.qm" SelfReg="false"/>
+    <ROW File="qt_cs.qm" Component_="qt_ar.qm" FileName="qt_cs.qm" Attributes="0" SourcePath="installer\translations\qt_cs.qm" SelfReg="false"/>
+    <ROW File="qt_da.qm" Component_="qt_ar.qm" FileName="qt_da.qm" Attributes="0" SourcePath="installer\translations\qt_da.qm" SelfReg="false"/>
+    <ROW File="qt_de.qm" Component_="qt_ar.qm" FileName="qt_de.qm" Attributes="0" SourcePath="installer\translations\qt_de.qm" SelfReg="false"/>
+    <ROW File="qt_en.qm" Component_="qt_ar.qm" FileName="qt_en.qm" Attributes="0" SourcePath="installer\translations\qt_en.qm" SelfReg="false"/>
+    <ROW File="qt_es.qm" Component_="qt_ar.qm" FileName="qt_es.qm" Attributes="0" SourcePath="installer\translations\qt_es.qm" SelfReg="false"/>
+    <ROW File="qt_fi.qm" Component_="qt_ar.qm" FileName="qt_fi.qm" Attributes="0" SourcePath="installer\translations\qt_fi.qm" SelfReg="false"/>
+    <ROW File="qt_fr.qm" Component_="qt_ar.qm" FileName="qt_fr.qm" Attributes="0" SourcePath="installer\translations\qt_fr.qm" SelfReg="false"/>
+    <ROW File="qt_gd.qm" Component_="qt_ar.qm" FileName="qt_gd.qm" Attributes="0" SourcePath="installer\translations\qt_gd.qm" SelfReg="false"/>
+    <ROW File="qt_he.qm" Component_="qt_ar.qm" FileName="qt_he.qm" Attributes="0" SourcePath="installer\translations\qt_he.qm" SelfReg="false"/>
+    <ROW File="qt_hu.qm" Component_="qt_ar.qm" FileName="qt_hu.qm" Attributes="0" SourcePath="installer\translations\qt_hu.qm" SelfReg="false"/>
+    <ROW File="qt_it.qm" Component_="qt_ar.qm" FileName="qt_it.qm" Attributes="0" SourcePath="installer\translations\qt_it.qm" SelfReg="false"/>
+    <ROW File="qt_ja.qm" Component_="qt_ar.qm" FileName="qt_ja.qm" Attributes="0" SourcePath="installer\translations\qt_ja.qm" SelfReg="false"/>
+    <ROW File="qt_ko.qm" Component_="qt_ar.qm" FileName="qt_ko.qm" Attributes="0" SourcePath="installer\translations\qt_ko.qm" SelfReg="false"/>
+    <ROW File="qt_lv.qm" Component_="qt_ar.qm" FileName="qt_lv.qm" Attributes="0" SourcePath="installer\translations\qt_lv.qm" SelfReg="false"/>
+    <ROW File="qt_pl.qm" Component_="qt_ar.qm" FileName="qt_pl.qm" Attributes="0" SourcePath="installer\translations\qt_pl.qm" SelfReg="false"/>
+    <ROW File="qt_ru.qm" Component_="qt_ar.qm" FileName="qt_ru.qm" Attributes="0" SourcePath="installer\translations\qt_ru.qm" SelfReg="false"/>
+    <ROW File="qt_sk.qm" Component_="qt_ar.qm" FileName="qt_sk.qm" Attributes="0" SourcePath="installer\translations\qt_sk.qm" SelfReg="false"/>
+    <ROW File="qt_tr.qm" Component_="qt_ar.qm" FileName="qt_tr.qm" Attributes="0" SourcePath="installer\translations\qt_tr.qm" SelfReg="false"/>
+    <ROW File="qt_uk.qm" Component_="qt_ar.qm" FileName="qt_uk.qm" Attributes="0" SourcePath="installer\translations\qt_uk.qm" SelfReg="false"/>
+    <ROW File="qt_zh_TW.qm" Component_="qt_ar.qm" FileName="qt_zh_TW.qm" Attributes="0" SourcePath="installer\translations\qt_zh_TW.qm" SelfReg="false"/>
+    <ROW File="acetone.xyz" Component_="acetone.xyz" FileName="acetone.xyz" Attributes="0" SourcePath="acetone.xyz" SelfReg="false"/>
+    <ROW File="allenegeomopt.molden_normal_modes" Component_="acetone.xyz" FileName="ALLENE~1.MOL|allene-geom-opt.molden_normal_modes" Attributes="0" SourcePath="allene-geom-opt.molden_normal_modes" SelfReg="false"/>
+    <ROW File="benzene.molden_normal_modes" Component_="acetone.xyz" FileName="BENZEN~1.MOL|benzene.molden_normal_modes" Attributes="0" SourcePath="benzene.molden_normal_modes" SelfReg="false"/>
+    <ROW File="benzene.xyz" Component_="acetone.xyz" FileName="benzene.xyz" Attributes="0" SourcePath="benzene.xyz" SelfReg="false"/>
+    <ROW File="caffeine.xyz" Component_="acetone.xyz" FileName="caffeine.xyz" Attributes="0" SourcePath="caffeine.xyz" SelfReg="false"/>
+    <ROW File="ethanol.molden_normal_modes" Component_="acetone.xyz" FileName="ETHANO~1.MOL|ethanol.molden_normal_modes" Attributes="0" SourcePath="ethanol.molden_normal_modes" SelfReg="false"/>
+    <ROW File="guanylicacid.xyz" Component_="acetone.xyz" FileName="GUANYL~1.XYZ|guanylic-acid.xyz" Attributes="0" SourcePath="guanylic-acid.xyz" SelfReg="false"/>
+    <ROW File="h2o2_zmat.xyz" Component_="acetone.xyz" FileName="H2O2_Z~1.XYZ|h2o2_zmat.xyz" Attributes="0" SourcePath="h2o2_zmat.xyz" SelfReg="false"/>
+    <ROW File="methanefreqmp2.molden_normal_modes" Component_="acetone.xyz" FileName="METHAN~1.MOL|methane-freq-mp2.molden_normal_modes" Attributes="0" SourcePath="methane-freq-mp2.molden_normal_modes" SelfReg="false"/>
+    <ROW File="methanol.molden_normal_modes" Component_="acetone.xyz" FileName="METHAN~2.MOL|methanol.molden_normal_modes" Attributes="0" SourcePath="methanol.molden_normal_modes" SelfReg="false"/>
+    <ROW File="vitaminB1.xyz" Component_="acetone.xyz" FileName="VITAMI~1.XYZ|vitaminB1.xyz" Attributes="0" SourcePath="vitaminB1.xyz" SelfReg="false"/>
+    <ROW File="vitaminD3.xyz" Component_="acetone.xyz" FileName="VITAMI~2.XYZ|vitaminD3.xyz" Attributes="0" SourcePath="vitaminD3.xyz" SelfReg="false"/>
+    <ROW File="README.txt" Component_="acetone.xyz" FileName="README.txt" Attributes="0" SourcePath="README.txt" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="QMolview" PackageFileName="qmolview" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#qmolview.exe]"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_ViewReadme" Type="1" Source="aicustact.dll" Target="[#README.txt]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AppDataFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="qgenericbearer.dll"/>
+    <ROW Feature_="MainFeature" Component_="D3Dcompiler_47.dll"/>
+    <ROW Feature_="MainFeature" Component_="xinputgamepad.dll"/>
+    <ROW Feature_="MainFeature" Component_="defaultgeometryloader.dll"/>
+    <ROW Feature_="MainFeature" Component_="gltfgeometryloader.dll"/>
+    <ROW Feature_="MainFeature" Component_="qsvgicon.dll"/>
+    <ROW Feature_="MainFeature" Component_="qgif.dll"/>
+    <ROW Feature_="MainFeature" Component_="qicns.dll"/>
+    <ROW Feature_="MainFeature" Component_="qico.dll"/>
+    <ROW Feature_="MainFeature" Component_="qjpeg.dll"/>
+    <ROW Feature_="MainFeature" Component_="qsvg.dll"/>
+    <ROW Feature_="MainFeature" Component_="qtga.dll"/>
+    <ROW Feature_="MainFeature" Component_="qtiff.dll"/>
+    <ROW Feature_="MainFeature" Component_="qwbmp.dll"/>
+    <ROW Feature_="MainFeature" Component_="qwebp.dll"/>
+    <ROW Feature_="MainFeature" Component_="libEGL.dll"/>
+    <ROW Feature_="MainFeature" Component_="libgcc_s_seh1.dll"/>
+    <ROW Feature_="MainFeature" Component_="libGLESv2.dll"/>
+    <ROW Feature_="MainFeature" Component_="libstdc6.dll"/>
+    <ROW Feature_="MainFeature" Component_="libwinpthread1.dll"/>
+    <ROW Feature_="MainFeature" Component_="opengl32sw.dll"/>
+    <ROW Feature_="MainFeature" Component_="qwindows.dll"/>
+    <ROW Feature_="MainFeature" Component_="qmolview.exe"/>
+    <ROW Feature_="MainFeature" Component_="Qt53DCore.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt53DExtras.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt53DInput.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt53DLogic.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt53DRender.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Charts.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Concurrent.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Gamepad.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Gui.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Network.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Svg.dll"/>
+    <ROW Feature_="MainFeature" Component_="Qt5Widgets.dll"/>
+    <ROW Feature_="MainFeature" Component_="openglrenderer.dll"/>
+    <ROW Feature_="MainFeature" Component_="gltfsceneexport.dll"/>
+    <ROW Feature_="MainFeature" Component_="gltfsceneimport.dll"/>
+    <ROW Feature_="MainFeature" Component_="qwindowsvistastyle.dll"/>
+    <ROW Feature_="MainFeature" Component_="qt_ar.qm"/>
+    <ROW Feature_="MainFeature" Component_="acetone.xyz"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="qmolview.exe" SourcePath="QMolview\src\icons\qmolview.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="qmolview" Directory_="SHORTCUTDIR" Name="qmolview" Component_="qmolview.exe" Target="[#qmolview.exe]" Description="View normal modes and xyz files." Hotkey="0" Icon_="qmolview.exe" IconIndex="0" ShowCmd="1" WkDir="installer_Dir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>
