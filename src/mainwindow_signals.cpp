@@ -1019,12 +1019,12 @@ void MainWindow::about()
 void MainWindow::launchHelp()
 {
 #ifdef Q_OS_LINUX
-    const auto& doc_location = SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf");
+    const auto& doc_location =  QString("file:///") + SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf");
 #endif
 
 #ifdef Q_OS_WIN
     const auto& doc_location = QString(QStandardPaths::locate(QStandardPaths::DocumentsLocation, "/QMolViev/qmolviewmanual.pdf"));
 #endif
 
-    QDesktopServices::openUrl(QUrl::fromLocalFile(doc_location));
+    QDesktopServices::openUrl(QUrl(doc_location));
 }

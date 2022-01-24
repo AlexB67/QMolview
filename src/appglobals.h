@@ -32,7 +32,7 @@ namespace SystemSettings
         {QString("Adwaita"), QColor(qRgb(110, 111, 119))},
         {QString("Black"), QColor(qRgb(0, 0, 0))},
         {QString("Breeze"), QColor(qRgb(27, 30, 32))},
-        {QString("Default"), QColor(QRgb(0x4d4d4f))},
+        {QString("Default"), QColor(qRgb(20, 20, 20))},
         {QString("Layan"), QColor(qRgb(60, 60, 69))},
         {QString("Layan-solid"), QColor(qRgb(60, 60, 69))},
         {QString("Fusion"), QColor(qRgb(68, 69, 75))},
@@ -47,7 +47,7 @@ namespace SystemSettings
         {QString("layan"), QColor(qRgb(60, 60, 69))},
         {QString("layan-solid"), QColor(qRgb(60, 60, 69))},
         {QString("fusion"), QColor(qRgb(68, 69, 75))},
-        {QString("default"), QColor(QRgb(0x4d4d4f))},
+        {QString("default"), QColor(qRgb(20, 20, 20))},
     };
 
     // The decision was made to treat system themes lower case (LINUX only)
