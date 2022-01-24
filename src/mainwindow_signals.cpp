@@ -1025,6 +1025,29 @@ void MainWindow::launchHelp()
 #ifdef Q_OS_WIN
     const auto& doc_location = QString(QStandardPaths::locate(QStandardPaths::DocumentsLocation, "/QMolViev/qmolviewmanual.pdf"));
 #endif
+    // gnome gio doesn't return false, it returns nothing via Qt, so check manually
+    const bool retcode = QDesktopServices::openUrl(QUrl(doc_location));
 
-    QDesktopServices::openUrl(QUrl(doc_location));
+    bool exists = (QFile(SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf")).exists())
+                ? true : false;
+
+    if (!retcode || !exists)
+    {
+        auto text = tr("The Documentation could not be opened.");
+        auto extra_text = doc_location +tr("\n\nThe Documentation can be found online at the following url\n"
+                                         "https://github.com/AlexB67/QMolview/blob/master/extras/doc/qmolviewmanual.pdf");
+        QMessageBox box;
+        box.setStandardButtons(QMessageBox::Close);
+        box.setDefaultButton(QMessageBox::Close);
+        box.setIcon(QMessageBox::Information);
+        box.setText(text);
+        box.setDetailedText(extra_text);
+
+#ifdef Q_OS_LINUX
+        QSpacerItem* horizontalSpacer = new QSpacerItem(450, 100, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        QGridLayout *layout = static_cast<QGridLayout *>(box.layout());
+        layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
+#endif
+        box.exec();
+    }
 }
