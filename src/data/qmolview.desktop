@@ -2,7 +2,7 @@
 Name=QMolView
 GenericName=Molecule viewer
 Comment=View normal modes, xyz or cml files
-Exec=env QT_QPA_PLATFORM=xcb qmolview %f
+Exec=qmolview %u
 Icon=qmolview
 Terminal=false
 Type=Application

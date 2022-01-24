@@ -14,7 +14,8 @@
         "--socket=x11",
         "--socket=wayland",
         "--filesystem=xdg-documents:create",
-        "--filesystem=home/.config/qmolview:create"
+        "--filesystem=home/.config/qmolview:create",
+        "--env=QT_QPA_PLATFORM=xcb"
     ],
     "modules": [
         {
