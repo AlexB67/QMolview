@@ -13,12 +13,14 @@
         "--share=ipc",
         "--socket=x11",
         "--socket=wayland",
-        "--filesystem=home:rw"
+        "--filesystem=xdg-documents:create",
+        "--filesystem=home/.config/qmolview:create"
     ],
     "modules": [
         {
             "name": "qmolview",
             "buildsystem": "cmake-ninja",
+            "config-opts": ["-DFLATPAK:BOOL=ON", "-DCMAKE_BUILD_TYPE=RelWithDebInfo"],
             "sources" : [
                 {
                     "type" : "git",

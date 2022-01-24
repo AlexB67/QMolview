@@ -191,7 +191,7 @@ MainWindow::MainWindow(QWidget *)
     normal_modes_table->setToolTip(tr("Select a row to animate a normal mode."));
 
     // Create 3D window
-    view = new MolView3D(this, view_angles, caminfo_label);
+    view = new MolView3D(this, view_angles, placeholderComboText, caminfo_label);
     container = QWidget::createWindowContainer(view, this);
     // Put it in a container
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -215,7 +215,6 @@ MainWindow::MainWindow(QWidget *)
     ctrlBox->setEnabled(false);
 
     viewBox = new QGroupBox(tr("View"), this);
-    viewBox->setContentsMargins(5, 5, 5, 0);
     viewBox->setAlignment(Qt::AlignHCenter);
     viewLayout = new QHBoxLayout;
     viewBox->setLayout(viewLayout);

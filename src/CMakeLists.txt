@@ -8,6 +8,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Are we building for flatpak
+option(FLATPAK "Enable Flatpak" OFF)
+
 # At some point if we want translations
 #find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 #find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
@@ -59,8 +62,13 @@ set(PROJECT_SOURCES
 )
 
 if(UNIX)
-	add_compile_options(-Wall -Wshadow -Wextra -Wpedantic -Wconversion)
+    add_compile_options(-Wall -Wshadow -Wextra -Wpedantic -Wconversion)
 endif()
+
+if (FLATPAK)
+    add_definitions(-DFLATPAK)
+endif(FLATPAK)
+
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(qmolview MANUAL_FINALIZATION ${PROJECT_SOURCES})

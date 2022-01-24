@@ -12,13 +12,19 @@
 namespace SystemSettings
 {
     inline QString systemstyle;
-    inline QString keyfile = QDir::homePath()
-                           + QString("/.qmolview_qt"
-                           + QString::number(QT_VERSION_MAJOR) + ".conf");
-
     inline bool native_dialogs{false};
     inline QFont systemFont;
     inline QString install_preFix;
+
+// need a better way for flatpak paths, will have to do for now & testing
+
+#ifdef FLATPAK
+    inline QString keyfile = QDir::homePath() + QString("/.config/qmolview/.qmolview_flatpak_qt"
+                           + QString::number(QT_VERSION_MAJOR) + ".conf");
+#else
+    inline QString keyfile = QDir::homePath() + QString("/.config/qmolview/.qmolview_qt"
+                           + QString::number(QT_VERSION_MAJOR) + ".conf");
+#endif
 
     inline static const QMap<QString, QColor> viewport_theme_colours
     {

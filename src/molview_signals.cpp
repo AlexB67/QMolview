@@ -235,7 +235,7 @@ void MolView::views(QComboBox *view_angles)
 
     if (view_angles->currentIndex() == -1)
         return;
-    if (view_angles->currentText() == tr("Perspective 1"))
+    else if (view_angles->currentText() == tr("Perspective 1"))
     {
       reset();
     }

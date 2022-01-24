@@ -1,6 +1,7 @@
 #include "appglobals.h"
 #include "mainwindow.h"
 #include <QDesktopServices>
+#include <QStandardPaths>
 //#include <Qt3DRender/QRenderCaptureReply>
 #include <QDir>
 #include <QFileInfo>
@@ -165,7 +166,6 @@ void MainWindow::sendsetLastFrame()
 void MainWindow::sendResetView()
 {
    m_modifier->resetView(view_angles);
-   m_modifier->reset();
 }
 
 void MainWindow::sendView()
@@ -286,7 +286,11 @@ void MainWindow::openFileDialog()
     if (!SystemSettings::native_dialogs)
     options = QFlag(QFileDialog::DontUseNativeDialog);
     // remember the path for future visits
+#ifdef FLATPAK
+    static QString currentPath = SystemSettings::install_preFix + QString("/share/qmolview/examples");
+#else
     static QString currentPath = QDir::homePath();
+#endif
 
     QString selectedFilter;
     QFileDialog *dialog = new QFileDialog(this);
@@ -1015,12 +1019,12 @@ void MainWindow::about()
 void MainWindow::launchHelp()
 {
 #ifdef Q_OS_LINUX
-    const auto doc_location = SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf");
+    const auto& doc_location = SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf");
 #endif
 
 #ifdef Q_OS_WIN
-    const auto doc_location = QString("doc/qmolviewmanual.pdf");
+    const auto& doc_location = QString(QStandardPaths::locate(QStandardPaths::DocumentsLocation, "/QMolViev/qmolviewmanual.pdf"));
 #endif
 
-    QDesktopServices::openUrl(QUrl(doc_location));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(doc_location));
 }
