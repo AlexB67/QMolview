@@ -437,8 +437,14 @@ void MainWindow::saveAsxyz()
     dialog->setNameFilter(tr("*.xyz"));
     dialog->setViewMode(QFileDialog::ViewMode::List);
 
-    QString file = dialog->getSaveFileName(this, tr("Save Normal Mode as an xyz file"),
-                                             QDir::homePath(), tr("*.xyz"), &selectedFilter,  options);
+#ifdef FLATPAK
+    static QString savePath = QDir::homePath() + QString("/Documents/");
+#else
+    static QString savePath = QDir::homePath();
+#endif
+
+    QString file = dialog->getSaveFileName(this, tr("Save as an xyz file"),
+                                             savePath, tr("*.xyz"), &selectedFilter,  options);
     if (file.length())
         m_modifier->write_xyz(file);
 
@@ -1018,36 +1024,23 @@ void MainWindow::about()
 
 void MainWindow::launchHelp()
 {
-#ifdef Q_OS_LINUX
-    const auto& doc_location =  QString("file:///") + SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf");
-#endif
-
 #ifdef Q_OS_WIN
-    const auto& doc_location = QString(QStandardPaths::locate(QStandardPaths::DocumentsLocation, "/QMolViev/qmolviewmanual.pdf"));
+    const auto& doc_location = QStandardPaths::locate(QStandardPaths::DocumentsLocation,
+                                                      QString("/QMolView/doc/qmolviewmanual.pdf"), QStandardPaths::LocateFile);
+    QDesktopServices::openUrl(QUrl(doc_location));
 #endif
-    // gnome gio doesn't return false, it returns nothing via Qt, so check manually
-    const bool retcode = QDesktopServices::openUrl(QUrl(doc_location));
-
-    bool exists = (QFile(SystemSettings::install_preFix + QString("/share/qmolview/doc/qmolviewmanual.pdf")).exists())
-                ? true : false;
-
-    if (!retcode || !exists)
-    {
-        auto text = tr("The Documentation could not be opened.");
-        auto extra_text = doc_location +tr("\n\nThe Documentation can be found online at the following url\n"
-                                         "https://github.com/AlexB67/QMolview/blob/master/extras/doc/qmolviewmanual.pdf");
-        QMessageBox box;
-        box.setStandardButtons(QMessageBox::Close);
-        box.setDefaultButton(QMessageBox::Close);
-        box.setIcon(QMessageBox::Information);
-        box.setText(text);
-        box.setDetailedText(extra_text);
 
 #ifdef Q_OS_LINUX
-        QSpacerItem* horizontalSpacer = new QSpacerItem(450, 100, QSizePolicy::Minimum, QSizePolicy::Expanding);
-        QGridLayout *layout = static_cast<QGridLayout *>(box.layout());
-        layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
+
+#ifdef FLATPAK
+    const auto& doc_location = QString("https://github.com/AlexB67/QMolview/blob/master/extras/doc/qmolviewmanual.pdf");
+#else
+    const auto& doc_location =  QString("file://") + SystemSettings::install_preFix
+                              + QString("/share/qmolview/doc/qmolviewmanual.pdf");
 #endif
-        box.exec();
-    }
+    // gnome gio via portal doesn't return false, it returns nothing via Qt so we
+    //  can't check for failure, just hope for success.
+    // flatpak https request appear to work, not a local file.
+    QDesktopServices::openUrl(QUrl(doc_location));
+#endif
 }

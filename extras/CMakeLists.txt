@@ -6,5 +6,8 @@ if(UNIX)
             PATTERN "*.cml"
             PATTERN "*.molden_normal_modes")
 
-    install(FILES doc/qmolviewmanual.pdf  DESTINATION  share/qmolview/doc)
+    if (NOT FLATPAK)
+        install(FILES doc/qmolviewmanual.pdf  DESTINATION  share/qmolview/doc)
+    endif ()
+
 endif()
