@@ -42,6 +42,13 @@ PrefsWindow::PrefsWindow(QWidget *parent) : QWidget(parent)
     setLayout(vboxLayout);
     vboxLayout->setSizeConstraint(QLayout::SetFixedSize);
 
+#ifdef Q_OS_LINUX // before qsettings kick in
+    if (SystemSettings::theme_to_view_colour.contains(QApplication::style()->objectName().toLower()))
+        viewportcolour->setCurrentText(SystemSettings::theme_to_view_colour[QApplication::style()->objectName().toLower()]);
+    else
+        viewportcolour->setCurrentText(tr("Default"));
+#endif
+
     load_settings(); // before we make any connections
 
     QObject::connect(themeselect, qOverload<int>(&QComboBox::currentIndexChanged),
@@ -224,6 +231,7 @@ void PrefsWindow::create_viewport_tab()
     for (auto iter = SystemSettings::viewport_theme_colours.begin();
          iter != SystemSettings::viewport_theme_colours.end(); ++iter)
         viewportcolour->addItem(iter.key());
+    viewportcolour->setCurrentText("Default");
 
     viewportcolour_custom = new ColourButton(this);
     viewportcolour_custom->setToolTip(tr("Set a custom viewport colour."));

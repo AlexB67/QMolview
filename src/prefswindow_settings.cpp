@@ -168,7 +168,7 @@ void PrefsWindow::removeAppearanceSettings()
 
     hide_menu->setChecked(false);
     iconselect->setCurrentText(tr("Auto"));
-    icon_size->setCurrentIndex(1);
+    icon_size->setCurrentIndex(1); // medium
 }
 
 void PrefsWindow::removeViewPortSettings()
@@ -186,7 +186,7 @@ void PrefsWindow::removeViewPortSettings()
 
     intensity->setValue(100);
 #ifdef Q_OS_LINUX
-    viewportcolour->setCurrentIndex(0);
+    viewportcolour->setCurrentText("Default");
 #endif
 
     mouse_speed->setValue(100);
