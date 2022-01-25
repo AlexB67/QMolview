@@ -56,7 +56,7 @@ sudo xargs rm < install_manifest.txt
 #### Linux flatpak
 The benefit is that local libraries do not have to be installed, only flatpak sdks, which is easily done. The commands are also universal and work on all Linux distributions offering flatpak support. 
 
-You must have flatpak-builder and flatpak tools installed and a compiler. The following packages are required (Note that if the Sdks are already installed you'll be told and may skip that step, this likely if you are already running KDE flatpaks). In the terminal type
+You must have flatpak-builder and flatpak tools installed, and a compiler. The following packages are required (Note that if the hollowing Sdks are already installed, you'll be told and may skip that step, this is likely if you are already running KDE flatpaks). In the terminal type
 ```
 flatpak install org.kde.sdk/5.15-21.08
 flatpak install org.kde.platform/5.15-21.08
@@ -64,7 +64,7 @@ flatpak install org.kde.platform/5.15-21.08
 Say yes when prompted. The first download contains everything needed to compile the project. Assuming the git repo you downloaded is in MyProjects/QMolview, build the flatpak as follows where the current directory is MyProjects.
 ```
 flatpak-builder ./flatpak --verbose QMolview/org.physchem.qmolview.json
-flatpak --install --force-clean --user ./flatpak QMolview/org/physchem.qmolview.json
+flatpak-builder --install --force-clean --user ./flatpak QMolview/org/physchem.qmolview.json
 ```
 clean up with
 ```
