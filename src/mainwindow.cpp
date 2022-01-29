@@ -171,7 +171,8 @@ MainWindow::MainWindow(QWidget *)
     caminfo_label ->setAlignment(Qt::AlignCenter);
     caminfo_label->setToolTip(tr("Hold and move the right mouse to tilt and pan around the Y axis.\n"
                                  "Hold the Alt key to switch panning around the Z axis.\n"
-                                 "Hold the left mouse and move to change view point."));
+                                 "Hold the left mouse and move to change view point.\n"
+                                 "Hold the left and right mouse and move to zoom in and out." ));
 
     normal_modes_table = new QTableWidget(this);
     normal_modes_table->insertColumn(0);
@@ -191,7 +192,7 @@ MainWindow::MainWindow(QWidget *)
     normal_modes_table->setToolTip(tr("Select a row to animate a normal mode."));
 
     // Create 3D window
-    view = new MolView3D(this, view_angles, placeholderComboText, caminfo_label);
+    view = new MolView3D(this, view_angles, caminfo_label);
     container = QWidget::createWindowContainer(view, this);
     // Put it in a container
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);

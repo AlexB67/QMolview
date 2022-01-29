@@ -12,10 +12,9 @@
 #include <QCursor>
 #include <iostream>
 
-MolView3D::MolView3D(QWidget *parent, QComboBox *view_angles,  QLabel *view_angles_custom, QLabel *cam_info_message)
+MolView3D::MolView3D(QWidget *parent, QComboBox *view_angles, QLabel *cam_info_message)
     : m_parent(parent),
       m_view_angles(view_angles),
-      m_view_angles_custom(view_angles_custom),
       m_cam_info_message(cam_info_message)
 {
     // Root
@@ -87,12 +86,7 @@ void MolView3D::mouseReleaseEvent(QMouseEvent *event)
     if (event->button() == Qt::RightButton || event->button() == Qt::LeftButton)
     {
         if (m_view_angles)
-        {
-            m_view_angles->blockSignals(true);
             m_view_angles->setCurrentIndex(-1);
-            m_view_angles_custom->setVisible(true);
-            m_view_angles->blockSignals(false);
-        }
 
         m_modifier->setFocus();
     }
@@ -109,12 +103,7 @@ void MolView3D::keyReleaseEvent(QKeyEvent *event)
         event->key() == Qt::Key_Left || event->key() == Qt::Key_Right)
     {
         if (m_view_angles)
-        {
-            m_view_angles->blockSignals(true);
             m_view_angles->setCurrentIndex(-1);
-            m_view_angles_custom->setVisible(true);
-            m_view_angles->blockSignals(false);
-        }
 
         m_modifier->setFocus();
 

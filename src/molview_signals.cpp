@@ -220,7 +220,7 @@ void MolView::stop_normal_mode()
 void MolView::reset()
 {
     m_camera->setViewCenter(QVector3D(0, 0, 0));
-    m_camera->setPosition(QVector3D(-10.0f, 10.0f, 15.0f));
+    m_camera->setPosition(QVector3D(-10.0f, 5.0f, 15.0f));
     m_camera->setUpVector(QVector3D(0, 1, 0));
     m_camera->viewAll();
 }
@@ -231,11 +231,13 @@ void MolView::resetView(QComboBox *view_angles)
 
 void MolView::views(QComboBox *view_angles)
 {
-    m_camera->setViewCenter(QVector3D(0, 0, 0));
 
     if (view_angles->currentIndex() == -1)
         return;
-    else if (view_angles->currentText() == tr("Perspective 1"))
+
+     m_camera->setViewCenter(QVector3D(0, 0, 0));
+
+    if (view_angles->currentText() == tr("Perspective 1"))
     {
       reset();
     }

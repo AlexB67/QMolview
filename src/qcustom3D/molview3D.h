@@ -19,7 +19,6 @@ class MolView3D : public Qt3DExtras::Qt3DWindow
 public:
     MolView3D(QWidget   *parent = nullptr,
               QComboBox *view_angles = nullptr,
-              QLabel    *view_angles_custom = nullptr,
               QLabel    *cam_info_message = nullptr);
 
     ~MolView3D() override {delete m_modifier;}
@@ -36,7 +35,6 @@ public:
 private:
     QWidget                 *m_parent;
     QComboBox               *m_view_angles;
-    QLabel                  *m_view_angles_custom;
     QLabel                  *m_cam_info_message;
     Qt3DCore::QEntity       *rootEntity;
     Qt3DRender::QCamera     *cameraEntity;
