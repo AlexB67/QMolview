@@ -64,7 +64,7 @@ flatpak install org.kde.platform/5.15-21.08
 Say yes when prompted. The first download contains everything needed to compile the project. Assuming the git repo you downloaded is in MyProjects/QMolview, build the flatpak as follows where the current directory is MyProjects.
 ```
 flatpak-builder ./flatpak --verbose QMolview/org.physchem.qmolview.json
-flatpak-builder --install --force-clean --user ./flatpak QMolview/org/physchem.qmolview.json
+flatpak-builder --install --force-clean --user ./flatpak QMolview/org.physchem.qmolview.json
 ```
 clean up with
 ```
